@@ -1,0 +1,37 @@
+﻿<Application
+    x:Class="ApplicationUI.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:ApplicationUI"
+    xmlns:viewmodel="clr-namespace:ApplicationUI.ViewModels"
+    xmlns:views="clr-namespace:ApplicationUI.Views">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Geometry x:Key="CustomPathGeometry2">M42.5 0H80v27.5H42.5zM0 32.5h37.5V60H0zM0 0h37.5v27.5H0zm42.5 32.5H80V60H42.5z</Geometry>
+            <Geometry x:Key="CustomPathGeometry">
+                M28 0h52v16.6H28zm0 43.1h52V60H28zm-28 0h23V60H0zm0-21.5h23v16.6H0zm28 0h52v16.6H28zM0 0h23v16.6H0z
+            </Geometry>
+            <DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">
+                <views:HomeView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodel:LoginViewModel}">
+                <views:LoginView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodel:NavigationViewModel}">
+                <views:NavigationBar />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodel:RegisterViewModel}">
+                <views:RegisterView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodel:ReservationDateViewModel}">
+                <views:ReservationDate />
+            </DataTemplate>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/Common.xaml" />
+                <ResourceDictionary Source="/Styles/NavigationBar.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
