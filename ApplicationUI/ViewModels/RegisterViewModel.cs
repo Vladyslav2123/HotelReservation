@@ -7,12 +7,12 @@ namespace ApplicationUI.ViewModels
 {
     public class RegisterViewModel : ViewModelBase
     {
-        private string _email;
+        private string? _email;
         public string Email
         {
             get
             {
-                return _email;
+                return _email!;
             }
             set
             {
@@ -22,12 +22,12 @@ namespace ApplicationUI.ViewModels
             }
         }
 
-        private string lastname;
+        private string? lastname;
         public string Lastname
         {
             get
             {
-                return lastname;
+                return lastname!;
             }
             set
             {
@@ -37,12 +37,12 @@ namespace ApplicationUI.ViewModels
             }
         }
 
-        private string firstname;
+        private string? firstname;
         public string Firstname
         {
             get
             {
-                return firstname;
+                return firstname!;
             }
             set
             {
@@ -52,12 +52,12 @@ namespace ApplicationUI.ViewModels
             }
         }
 
-        private string phone;
+        private string? phone;
         public string Phone
         {
             get
             {
-                return phone;
+                return phone!;
             }
             set
             {
@@ -67,12 +67,12 @@ namespace ApplicationUI.ViewModels
             }
         }
 
-        private string _password;
+        private string? _password;
         public string Password
         {
             get
             {
-                return _password;
+                return _password!;
             }
             set
             {
@@ -82,12 +82,12 @@ namespace ApplicationUI.ViewModels
             }
         }
 
-        private string _confirmPassword;
+        private string? _confirmPassword;
         public string ConfirmPassword
         {
             get
             {
-                return _confirmPassword;
+                return _confirmPassword!;
             }
             set
             {
@@ -112,6 +112,7 @@ namespace ApplicationUI.ViewModels
 
         public string ErrorMessage
         {
+            private get { return null!; }
             set => ErrorMessageViewModel.Message = value;
         }
 

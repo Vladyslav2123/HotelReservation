@@ -7,12 +7,12 @@ namespace ApplicationUI.ViewModels;
 
 public class LoginViewModel : ViewModelBase
 {
-    private string email = "test@test.com";
+    private string? email = "test@test.com";
     public string Email
     {
         get
         {
-            return email;
+            return email!;
         }
         set
         {
@@ -22,12 +22,12 @@ public class LoginViewModel : ViewModelBase
         }
     }
 
-    private string _password;
+    private string? _password;
     public string Password
     {
         get
         {
-            return _password;
+            return _password!;
         }
         set
         {
@@ -41,8 +41,9 @@ public class LoginViewModel : ViewModelBase
 
     public MessageViewModel ErrorMessageViewModel { get; }
 
-    public string ErrorMessage
+    public string SetErrorMessage
     {
+        private get { return null!; }
         set => ErrorMessageViewModel.Message = value;
     }
 

@@ -20,10 +20,10 @@ public class RegisterCommand : AsyncCommandBase
         _authenticator = authenticator;
         _registerRenavigator = registerRenavigator;
 
-        _registerViewModel.PropertyChanged += RegisterViewModel_PropertyChanged;
+        _registerViewModel.PropertyChanged += RegisterViewModel_PropertyChanged!;
     }
 
-    public override bool CanExecute(object parameter)
+    public override bool CanExecute(object? parameter)
     {
         return _registerViewModel.CanRegister && base.CanExecute(parameter);
     }

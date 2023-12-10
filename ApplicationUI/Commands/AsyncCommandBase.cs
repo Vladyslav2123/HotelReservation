@@ -20,18 +20,18 @@ public abstract class AsyncCommandBase : ICommand
         }
     }
 
-    public event EventHandler CanExecuteChanged;
+    public event EventHandler? CanExecuteChanged;
 
-    public virtual bool CanExecute(object parameter)
+    public virtual bool CanExecute(object? parameter)
     {
         return !IsExecuting;
     }
 
-    public async void Execute(object parameter)
+    public async void Execute(object? parameter)
     {
         IsExecuting = true;
 
-        await ExecuteAsync(parameter);
+        await ExecuteAsync(parameter!);
 
         IsExecuting = false;
     }

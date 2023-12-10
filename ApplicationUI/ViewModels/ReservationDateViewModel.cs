@@ -25,7 +25,9 @@ public class ReservationDateViewModel : ViewModelBase
     public ReservationDateViewModel()
     {
         roomView = new RoomView();
-        Rooms = new ObservableCollection<RoomView>();
-        Rooms.Add(roomView);
+        Rooms = new ObservableCollection<RoomView>
+        {
+            roomView,
+        };
     }
 }

@@ -20,17 +20,17 @@ public class LoginCommand : AsyncCommandBase
         _authenticator = authenticator;
         _renavigator = renavigator;
 
-        _loginViewModel.PropertyChanged += LoginViewModel_PropertyChanged;
+        _loginViewModel.PropertyChanged += LoginViewModel_PropertyChanged!;
     }
 
-    public override bool CanExecute(object parameter)
+    public override bool CanExecute(object? parameter)
     {
         return _loginViewModel.CanLogin && base.CanExecute(parameter);
     }
 
     public override async Task ExecuteAsync(object parameter)
     {
-        _loginViewModel.ErrorMessage = string.Empty;
+        _loginViewModel.SetErrorMessage = string.Empty;
 
         try
         {
@@ -40,15 +40,15 @@ public class LoginCommand : AsyncCommandBase
         }
         catch (UserNotFoundException)
         {
-            _loginViewModel.ErrorMessage = "Username does not exist.";
+            _loginViewModel.SetErrorMessage = "Username does not exist.";
         }
         catch (InvalidPasswordException)
         {
-            _loginViewModel.ErrorMessage = "Incorrect password.";
+            _loginViewModel.SetErrorMessage = "Incorrect password.";
         }
         catch (Exception)
         {
-            _loginViewModel.ErrorMessage = "Login failed.";
+            _loginViewModel.SetErrorMessage = "Login failed.";
         }
     }
 

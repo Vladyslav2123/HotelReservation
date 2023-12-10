@@ -1,9 +1,8 @@
-﻿using Domain.Interfaces;
-using System;
+﻿using System;
 
 namespace ApplicationUI.Models;
 
-public class ClientModel : IEntity
+public class ClientModel
 {
     public Guid Id { get; }
     public string FirstName { get; set; } = string.Empty;

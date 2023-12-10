@@ -2,12 +2,12 @@
 
 public class MessageViewModel : ViewModelBase
 {
-    private string _message;
+    private string? _message;
     public string Message
     {
         get
         {
-            return _message;
+            return _message!;
         }
         set
         {

@@ -7,7 +7,7 @@ namespace ApplicationUI.Commands;
 
 public class UpdateCurrentViewModelCommand : ICommand
 {
-    public event EventHandler CanExecuteChanged;
+    public event EventHandler? CanExecuteChanged;
 
     private readonly INavigator _navigator;
     private readonly ISimpleViewModelFactory _viewModelFactory;
@@ -18,18 +18,19 @@ public class UpdateCurrentViewModelCommand : ICommand
         _viewModelFactory = viewModelFactory;
     }
 
-    public bool CanExecute(object parameter)
+    public bool CanExecute(object? parameter)
     {
         return true;
     }
 
-    public void Execute(object parameter)
+    public void Execute(object? parameter)
     {
-        if (parameter is ViewType)
+        if (parameter is not ViewType)
         {
-            ViewType viewType = (ViewType)parameter;
-
-            _navigator.CurrentViewModel = _viewModelFactory.CreateViewModel(viewType);
+            return;
         }
+        ViewType viewType = (ViewType)parameter;
+
+        _navigator.CurrentViewModel = _viewModelFactory.CreateViewModel(viewType);
     }
 }
