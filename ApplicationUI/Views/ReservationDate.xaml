@@ -45,33 +45,24 @@
                     Grid.Column="1"
                     Margin="5"
                     Content="Вибір" />
-                <StackPanel
-                    Grid.Column="4"
-                    Margin="5,5,5,-3"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Bottom"
-                    Orientation="Horizontal">
-                    <Path
-                        HorizontalAlignment="Left"
-                        Data="{StaticResource CustomPathGeometry2}"
-                        Fill="Black"
-                        Stroke="BlanchedAlmond"
-                        StrokeThickness="1">
-                        <Path.RenderTransform>
-                            <ScaleTransform ScaleX="0.7" ScaleY="0.7" />
-                        </Path.RenderTransform>
-                    </Path>
-                    <Path
-                        HorizontalAlignment="Right"
-                        Data="{StaticResource CustomPathGeometry}"
-                        Fill="Gray"
-                        FlowDirection="LeftToRight"
-                        Stroke="BlanchedAlmond"
-                        StrokeThickness="2">
-                        <Path.RenderTransform>
-                            <ScaleTransform ScaleX="0.7" ScaleY="0.7" />
-                        </Path.RenderTransform>
-                    </Path>
+                <StackPanel Grid.Column="3" Orientation="Horizontal">
+                    <Button>
+                        <Path
+                            Data="{StaticResource CustomPathGeometry2}"
+                            Fill="Black"
+                            Stretch="Uniform"
+                            Stroke="White"
+                            StrokeThickness="1" />
+                    </Button>
+                    <Button>
+                        <Path
+                            HorizontalAlignment="Center"
+                            Data="{StaticResource CustomPathGeometry}"
+                            Fill="Gray"
+                            Stretch="Uniform"
+                            Stroke="White"
+                            StrokeThickness="1" />
+                    </Button>
                 </StackPanel>
             </Grid>
             <Line
@@ -83,7 +74,21 @@
                 </Line.X2>
             </Line>
         </StackPanel>
-
-        <ListBoxItem Grid.Row="2" />
+        <ListBox
+            x:Name="myListBox"
+            Grid.Row="2"
+            IsEnabled="False"
+            ItemsSource="{Binding Rooms}">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="IsHitTestVisible" Value="False" />
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <local:RoomView />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </UserControl>

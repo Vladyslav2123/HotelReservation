@@ -1,0 +1,167 @@
+﻿<UserControl
+    x:Class="ApplicationUI.Views.RoomView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:ApplicationUI.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="350"
+    d:DesignWidth="900"
+    Background="Transparent"
+    BorderBrush="Transparent"
+    BorderThickness="0"
+    mc:Ignorable="d">
+    <Border
+        Background="White"
+        BorderThickness="2"
+        CornerRadius="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel
+                Grid.Row="0"
+                Grid.RowSpan="3"
+                Grid.Column="0">
+                <Image
+                    Height="350"
+                    Source="\Resources\3.jpg"
+                    Stretch="UniformToFill" />
+            </StackPanel>
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="0"
+                Margin="15,0"
+                VerticalAlignment="Bottom"
+                FontFamily="Sans Serif Collection"
+                FontSize="16"
+                FontWeight="Bold"
+                Foreground="#FFFBFBFB"
+                Text="Standart Room" />
+            <StackPanel Grid.Row="0" Grid.Column="1">
+                <TextBlock
+                    Margin="10"
+                    Text="Опис номеру: Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    TextWrapping="Wrap" />
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="2">
+                <TextBlock
+                    Margin="10,0"
+                    FontFamily="Sans Serif Collection"
+                    FontSize="18"
+                    FontStretch="Normal"
+                    Foreground="#FF6F6F6F"
+                    Text="Розміщення:" />
+                <Path
+                    Margin="15,0,0,0"
+                    HorizontalAlignment="Left"
+                    Data="{StaticResource People}"
+                    Fill="Black"
+                    Stroke="BlanchedAlmond"
+                    StrokeThickness="1">
+                    <Path.RenderTransform>
+                        <ScaleTransform ScaleX="0.7" ScaleY="0.7" />
+                    </Path.RenderTransform>
+                </Path>
+                <TextBlock
+                    Margin="10,0"
+                    FontFamily="Sans Serif Collection"
+                    Foreground="#FFA5A5A5"
+                    Text="Ліжко: 1" />
+            </StackPanel>
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Orientation="Horizontal">
+                <Path
+                    Margin="10,0,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Data="{StaticResource CustomBed}"
+                    Fill="Black"
+                    Stroke="BlanchedAlmond"
+                    StrokeThickness="1">
+                    <Path.RenderTransform>
+                        <ScaleTransform ScaleX="0.5" ScaleY="0.5" />
+                    </Path.RenderTransform>
+                </Path>
+                <TextBlock
+                    Margin="15,0,15,15"
+                    VerticalAlignment="Center"
+                    FontFamily="Sans Serif Collection"
+                    Foreground="#FF6F6F6F"
+                    Text=" Двоспальне ліжко або два односпальних " />
+            </StackPanel>
+            <Grid
+                Grid.Row="2"
+                Grid.Column="1"
+                Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <TextBlock
+                        Margin="10,0"
+                        FontFamily="Sans Serif Collection"
+                        FontSize="14"
+                        Foreground="#FF6F6F6F"
+                        Text="Ціна за ніч:" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontFamily="Sans Serif Collection"
+                        FontSize="18"
+                        Foreground="#FF6F6F6F"
+                        Text="1700 UAH" />
+                </StackPanel>
+                <Button
+                    Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="#FFB9D3F7"
+                    BorderBrush="Black"
+                    Foreground="#FF7D7777">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border
+                                Padding="5"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="8">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Margin" Value="15" />
+                            <Setter Property="FontSize" Value="24" />
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="DarkBlue" />
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="DarkBlue" />
+                                    <Setter Property="Foreground" Value="LightBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    Обрати тариф
+                </Button>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>
